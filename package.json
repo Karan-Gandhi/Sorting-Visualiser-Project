@@ -1,0 +1,25 @@
+{
+  "name": "sorting-visualiser",
+  "version": "1.0.0",
+  "description": "This is a Project made be Karan Gandhi to visualise the different sorting algorithms",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karan-Gandhi/Sorting-Visualiser-Project.git"
+  },
+  "keywords": [
+    "Visualiser",
+    "sorting",
+    "Sorting",
+    "zVisualiser\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b\u001b[3~\u001b[3~\u001b[3~\u001b[3~"
+  ],
+  "author": "Karan Gandhi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Karan-Gandhi/Sorting-Visualiser-Project/issues"
+  },
+  "homepage": "https://github.com/Karan-Gandhi/Sorting-Visualiser-Project#readme"
+}
