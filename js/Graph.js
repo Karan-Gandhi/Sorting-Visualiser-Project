@@ -14,20 +14,28 @@ class Graph {
 
     randomise() {
         for (let i = 0; i < this.size; i++) {
-            this.array[i] = Math.floor(Math.random() * (1000 - 10) + 10);
+            this.array[i] = Math.floor(Math.random() * (1000 - 50) + 50);
         }
     }
 
-    show() {
+    showGraph() {
         let barWidth = this.dimentions.w / this.array.length - 1;
         for (let i = 0; i < this.array.length; i++) {
-            let bar = createElement("div", "bar");
+            const bar = createElement("div", "bar");
             bar.style.position = "absolute";
             bar.style.left = i * barWidth + i + "px";
             bar.style.bottom = 0 + "px";
             bar.style.width = barWidth + "px";
             bar.style.height = (this.array[i] / 1000) * this.dimentions.h + "px";
             this.root.append(bar);
+        }
+        for (var i = 30; i < this.dimentions.h; i += 30) {
+            const line = createElement("div", "tick");
+            line.innerHTML = i;
+            line.style.position = "absolute";
+            line.style.bottom = i + "px";
+            line.style.left = -25 + "px";
+            this.root.append(line);
         }
     }
 }

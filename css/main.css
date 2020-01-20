@@ -3,10 +3,15 @@
     margin-right: 1px;
 }
 
+#tick {
+    color: black;
+    font-size: 10px;
+}
+
 #root {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 30px;
     right: 0;
     bottom: 0;
 }
