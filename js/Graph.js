@@ -10,6 +10,7 @@ class Graph {
             h: height
         };
         this.root = root;
+        this.bars = [];
     }
 
     randomise() {
@@ -19,6 +20,8 @@ class Graph {
     }
 
     showGraph() {
+        this.root.innerHTML = "";
+        this.bars.length = 0;
         let barWidth = this.dimentions.w / this.array.length - 1;
         for (let i = 0; i < this.array.length; i++) {
             const bar = createElement("div", "bar");
@@ -28,6 +31,7 @@ class Graph {
             bar.style.width = barWidth + "px";
             bar.style.height = (this.array[i] / 1000) * this.dimentions.h + "px";
             this.root.append(bar);
+            this.bars.push(bar);
         }
         for (var i = 30; i < this.dimentions.h; i += 30) {
             const line = createElement("div", "tick");
@@ -37,6 +41,25 @@ class Graph {
             line.style.left = -25 + "px";
             this.root.append(line);
         }
+    }
+
+    compare(a, b) {
+        this.bars[a].style.backgroundColor = "yellow";
+        this.bars[b].style.backgroundColor = "yellow";
+    }
+
+    uncompare(a, b) {
+        this.bars[a].style.backgroundColor = "red";
+        this.bars[b].style.backgroundColor = "red";
+    }
+
+    swap(a, b) {
+        let temp = this.array[a];
+        this.array[a] = this.array[b];
+        this.array[b] = temp;
+        let temp_ = this.bars[a];
+        this.bars[a] = this.bars[a];
+        this.bars[b] = temp_;
     }
 }
 
