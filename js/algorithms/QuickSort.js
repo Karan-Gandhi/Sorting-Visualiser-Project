@@ -1,6 +1,5 @@
 async function Quicksort(graph, lo, hi) {
     if (lo < hi) {
-        // graph.active(lo, hi);
         let p = await partition(graph, lo, hi);
         await Quicksort(graph, lo, p - 1);
         await Quicksort(graph, p + 1, hi);

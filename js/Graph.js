@@ -61,6 +61,10 @@ class Graph {
         this.bars[a] = this.bars[a];
         this.bars[b] = temp_;
     }
+
+    static copy(g) {
+        return new Graph(g.size, g.dimentions.w, g.dimentions.h, g.root);
+    }
 }
 
 function createElement(tag, id) {
