@@ -15,7 +15,3 @@ async function BubbleSort(graph) {
         }
     }
 }
-
-async function sleep(time) {
-    return new Promise((resolve) => setTimeout(resolve, time));
-}
