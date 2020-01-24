@@ -67,19 +67,48 @@
 //     if (n - mid > 1) TopDownMergeSort();
 // }
 
-function MergeSort(graph, arr) {
-    if (arr.length <= 1) {
-        return arr;
+async function MergeSort(graph, unsortedArray, index) {
+    if (unsortedArray.length <= 1) {
+        return unsortedArray;
     }
-    const mid = Math.floor(arr.length / 2);
-    const l = arr.slice(0, mid);
-    const r = arr.slice(mid, 0);
+    const middle = Math.floor(unsortedArray.length / 2);
 
-    return merge(graph, MergeSort(graph, l), MergeSort(graph, r));
+    const left = unsortedArray.slice(0, middle);
+    const right = unsortedArray.slice(middle);
+
+    const l = await MergeSort(graph, left, index);
+    const r = await MergeSort(graph, right, index + left.length);
+
+    return await merge(graph, l, r, index);
 }
 
-function merge(graph, l, r) {
-    let result = [],
-        lindex = 0,
-        rindex = 0;
+async function merge(graph, left, right, i) {
+    let resultArray = [],
+        leftIndex = 0,
+        rightIndex = 0;
+
+    while (leftIndex < left.length && rightIndex < right.length) {
+        graph.compare(leftIndex + i, rightIndex + i);
+        if (left[leftIndex] < right[rightIndex]) {
+            resultArray.push(left[leftIndex]);
+            leftIndex++;
+        } else {
+            resultArray.push(right[rightIndex]);
+            rightIndex++;
+        }
+        await sleep(100);
+        graph.updateArray(i, resultArray.length + i, resultArray);
+        console.log(resultArray);
+
+        graph.showGraph();
+    }
+
+    resultArray = resultArray.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+
+    // graph.array = resultArray;
+    // graph.updateArray(i, resultArray);
+    // graph.showGraph();
+    // await sleep(100);
+
+    return resultArray;
 }

@@ -1,4 +1,20 @@
+/**
+ * @author Karan Gandhi
+ * @email karangandhi.programming@gmail.com
+ *
+ * This is a graph class which will visualise the array which will be randomised
+ *
+ * @class Graph
+ */
 class Graph {
+    /**
+     * Creates an instance of Graph.
+     * @param {Integer}} size
+     * @param {Double} width
+     * @param {Double} height
+     * @param {DOM Element} root
+     * @memberof Graph
+     */
     constructor(size, width, height, root) {
         this.array = [];
         for (let i = 0; i < size; i++) {
@@ -13,12 +29,22 @@ class Graph {
         this.bars = [];
     }
 
+    /**
+     * This is to randomise all the elements of the arrat
+     *
+     * @memberof Graph
+     */
     randomise() {
         for (let i = 0; i < this.size; i++) {
             this.array[i] = Math.floor(Math.random() * (1000 - 50) + 50);
         }
     }
 
+    /**
+     * This is to display all the values in the array in the for of a bar graph
+     *
+     * @memberof Graph
+     */
     showGraph() {
         this.root.innerHTML = "";
         this.bars.length = 0;
@@ -43,16 +69,37 @@ class Graph {
         }
     }
 
+    /**
+     * hilights two bars which are currently being compared
+     *
+     * @param {Index} a
+     * @param {Index} b
+     * @memberof Graph
+     */
     compare(a, b) {
         this.bars[a].style.backgroundColor = "yellow";
         this.bars[b].style.backgroundColor = "yellow";
     }
 
+    /**
+     * This is to unhilight two bars of the graph
+     *
+     * @param {Index} a
+     * @param {Index} b
+     * @memberof Graph
+     */
     uncompare(a, b) {
         this.bars[a].style.backgroundColor = "red";
         this.bars[b].style.backgroundColor = "red";
     }
 
+    /**
+     * This swaps two values in the array with each other
+     *
+     * @param {Index} a
+     * @param {Index} b
+     * @memberof Graph
+     */
     swap(a, b) {
         let temp = this.array[a];
         this.array[a] = this.array[b];
@@ -62,11 +109,33 @@ class Graph {
         this.bars[b] = temp_;
     }
 
+    updateArray(from, to, arr) {
+        if (to - from != arr.length) throw Error("Opps");
+        for (let i = from; i < arr.length; i++) {
+            this.array[i] = arr[i];
+        }
+    }
+
+    /**
+     * THis is to copy a grahp
+     *
+     * @static
+     * @param {Graph} g
+     * @returns
+     * @memberof Graph
+     */
     static copy(g) {
         return new Graph(g.size, g.dimentions.w, g.dimentions.h, g.root);
     }
 }
 
+/**
+ * This returne a new DOM Element which has the given id
+ *
+ * @param {String} tag
+ * @param {String} id
+ * @returns {DOM Element} DOM Element with assigned id
+ */
 function createElement(tag, id) {
     const elt = document.createElement(tag);
     elt.id = id;
