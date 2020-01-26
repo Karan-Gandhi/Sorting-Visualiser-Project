@@ -109,11 +109,8 @@ class Graph {
         this.bars[b] = temp_;
     }
 
-    updateArray(from, to, arr) {
-        if (to - from != arr.length) throw Error("Opps");
-        for (let i = from; i < arr.length; i++) {
-            this.array[i] = arr[i];
-        }
+    updateArray(from, arr) {
+        this.array.splice.apply(this.array, [from, arr.length].concat(arr));
     }
 
     /**
