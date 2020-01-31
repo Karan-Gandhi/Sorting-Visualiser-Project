@@ -15,7 +15,7 @@ async function partition(graph, lo, hi) {
             graph.swap(i, j);
             graph.showGraph();
             graph.compare(j, i);
-            await sleep(1);
+            await sleep(graph.time);
             graph.uncompare(j, hi);
             i += 1;
         }
