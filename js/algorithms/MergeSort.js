@@ -33,7 +33,7 @@ async function merge(graph, left, right, i) {
             rightIndex++;
         }
         graph.updateArray(i, resultArray);
-        await sleep(10);
+        await sleep(graph.time);
         graph.showGraph();
     }
 
