@@ -1,5 +1,5 @@
 let graph = null;
-const algorithms = [BubbleSort, Quicksort, MergeSort, Heapsort, InsertionSort, SelectionSort, ShellSort];
+const algorithms = [BubbleSort, Quicksort, MergeSort, Heapsort, InsertionSort, SelectionSort, ShellSort, CocktailShakerSort];
 
 window.onload = async () => {
     graph = new Graph(500, document.getElementById("root").offsetWidth, document.getElementById("root").offsetHeight - 100, document.getElementById("root"));
